@@ -28,7 +28,7 @@ export default async function DashboardPage() {
             key,
             status,
             support_expires,
-            activations(server_id, activated_at)
+            activations(server_id)
           `)
 
     return <LicenseTable licenses={licenses || []} />

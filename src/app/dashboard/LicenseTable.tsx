@@ -4,7 +4,6 @@ import { Copy, CheckCircle, XCircle, Trash2, Play, Pause, Plus, ChevronDown, Che
 
 interface Activation {
     server_id: string
-    activated_at: string
 }
 
 interface License {
@@ -266,12 +265,6 @@ export default function LicenseTable({ licenses }: LicenseTableProps) {
                                                                     <div className="font-mono text-gray-300 bg-slate-900/50 rounded p-2 mt-1 break-all">
                                                                         {license.activations[0].server_id}
                                                                     </div>
-                                                                </div>
-                                                                <div>
-                                                                    <span className="text-gray-400">Activated:</span>
-                                                                    <span className="text-gray-300 ml-2">
-                                                                            {new Date(license.activations[0].activated_at).toLocaleString()}
-                                                                        </span>
                                                                 </div>
                                                             </div>
                                                         </div>
