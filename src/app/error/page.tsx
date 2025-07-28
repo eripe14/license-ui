@@ -38,7 +38,7 @@ export default function ErrorPage() {
                     <h2 className="text-2xl font-bold text-white mb-3">Something went wrong</h2>
                     <p className="text-gray-400 mb-6 leading-relaxed">
                         We encountered an unexpected error while processing your request.
-                        Don't worry, our team has been notified and is working to fix this issue.
+                        Don&apos;t worry, our team has been notified and is working to fix this issue.
                     </p>
 
                     {/* Error Details */}

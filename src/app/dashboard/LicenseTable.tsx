@@ -2,7 +2,24 @@
 import React, { useState } from 'react'
 import { Copy, CheckCircle, XCircle, Trash2, Play, Pause, Plus, ChevronDown, ChevronRight, Calendar, Server, Key, Shield } from 'lucide-react'
 
-export default function LicenseTable({ licenses }: { licenses: any[] }) {
+interface Activation {
+    server_id: string
+    activated_at: string
+}
+
+interface License {
+    key: string
+    status: 'active' | 'inactive' | 'expired'
+    support_expires: string | null
+    created_at: string
+    activations?: Activation[]
+}
+
+interface LicenseTableProps {
+    licenses: License[]
+}
+
+export default function LicenseTable({ licenses }: LicenseTableProps) {
     const [copiedKey, setCopiedKey] = useState<string | null>(null)
     const [expandedRows, setExpandedRows] = useState<Set<string>>(new Set())
 
@@ -156,7 +173,7 @@ export default function LicenseTable({ licenses }: { licenses: any[] }) {
                             </tr>
                             </thead>
                             <tbody>
-                            {licenses.map((license, index) => (
+                            {licenses.map((license) => (
                                 <React.Fragment key={license.key}>
                                     <tr className="border-b border-slate-700/30 hover:bg-slate-700/30 transition-colors duration-200">
                                         <td className="p-4">
@@ -241,7 +258,7 @@ export default function LicenseTable({ licenses }: { licenses: any[] }) {
                                                             {license.key}
                                                         </div>
                                                     </div>
-                                                    {license.activations?.length > 0 && (
+                                                    {license.activations?.length && license.activations.length > 0 && (
                                                         <div className="bg-slate-800/50 rounded-lg p-4">
                                                             <h4 className="text-white font-semibold mb-2">Server Details</h4>
                                                             <div className="space-y-2 text-sm">
