@@ -11,7 +11,6 @@ interface License {
     key: string
     status: 'active' | 'inactive' | 'expired'
     support_expires: string | null
-    created_at: string
     activations?: Activation[]
 }
 
@@ -284,12 +283,6 @@ export default function LicenseTable({ licenses }: LicenseTableProps) {
                                                                 <span className="text-gray-400">Type:</span>
                                                                 <span className="text-gray-300">
                                                                         {license.support_expires ? 'Annual' : 'Lifetime'}
-                                                                    </span>
-                                                            </div>
-                                                            <div className="flex justify-between">
-                                                                <span className="text-gray-400">Created:</span>
-                                                                <span className="text-gray-300">
-                                                                        {new Date(license.created_at).toLocaleDateString()}
                                                                     </span>
                                                             </div>
                                                             <div className="flex justify-between">

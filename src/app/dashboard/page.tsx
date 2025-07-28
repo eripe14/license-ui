@@ -28,7 +28,6 @@ export default async function DashboardPage() {
             key,
             status,
             support_expires,
-            created_at,
             activations(server_id, activated_at)
           `)
 
